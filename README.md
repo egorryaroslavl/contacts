@@ -4,7 +4,7 @@ Installation
 ------------
 
 ```
-composer require "egorryaroslavl/contacts":"1.0.1"
+composer require "egorryaroslavl/contacts":"1.0.2"
 ```
 
 Then add ServiceProviders

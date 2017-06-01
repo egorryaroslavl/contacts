@@ -10,7 +10,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-      "egorryaroslavl/admin": "^1.0.4",
+      "egorryaroslavl/admin": "^1.0.5",
       "laravelcollective/html": "^5.3.0",
       "intervention/image": "^2.3"
     },
