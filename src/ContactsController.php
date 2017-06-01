@@ -25,8 +25,15 @@
 		public function index()
 		{
 			$breadcrumbs = '<h2>Контакты</h2><ol class="breadcrumb"><li><a href="/admin">Главная</a></li><li><a>Контакты</a></li></ol>';
-			$data        = ContactModel::where( 'id', 1 )->first();
 
+
+			/*  Если записи в БД нет, создаём пустую  */
+			$count = \DB::table( 'contacts' )->count();
+			if( $count === 0 ){
+				\DB::table( 'contacts' )->insert( [ 'id' => 1, 'name' => '' ] );
+			}
+
+			$data = ContactModel::where( 'id', 1 )->first();
 
 			return view( 'contacts::index', [ 'data' => $data, 'breadcrumbs' => $breadcrumbs ] );
 
@@ -36,6 +43,13 @@
 		public function edit()
 		{
 			$breadcrumbs = '<h2>Контакты</h2><ol class="breadcrumb"><li><a href="/admin">Главная</a></li><li><a><a href="/admin/contacts">Контакты</a> [ редактирование ]</li></ol>';
+
+			/*  Если записи в БД нет, создаём пустую  */
+			$count = \DB::table( 'contacts' )->count();
+			if( $count === 0 ){
+				\DB::table( 'contacts' )->insert( [ 'id' => 1, 'name' => '' ] );
+			}
+			
 			$data        = ContactModel::where( 'id', 1 )->first();
 			$data->act   = 'contacts-store';
 			return view( 'contacts::form', [ 'data' => $data, 'breadcrumbs' => $breadcrumbs ] );
@@ -50,8 +64,8 @@
 				$path_parts = pathinfo( $request->icon );
 				$ext        = $path_parts[ 'extension' ];
 				/*				$rand            = str_random( 6 );*/
-			//	$file_name = "/uploads/icons/icon_contacts_logo." . $ext;
-				$file_name = "/uploads/icons/icon_contacts_logo.png" ;
+				//	$file_name = "/uploads/icons/icon_contacts_logo." . $ext;
+				$file_name = "/uploads/icons/icon_contacts_logo.png";
 				//$file_name_small = "/uploads/icons/icon_contacts_logo_small." . $ext;
 				$file_name_small = "/uploads/icons/icon_contacts_logo_small.png";
 

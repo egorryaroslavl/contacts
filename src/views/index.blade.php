@@ -7,12 +7,12 @@
 					
 						<div class="col-sm-4">
 							<div class="text-center">
-								<img alt="logo" style="max-height:150px" class="img-circle m-t-xs img-responsive" src="{{$data->icon or 'https://ww2.mhs.com/Portals/1/images/noimage.png'}}">
-								<div class="m-t-xs font-bold">{{$data->name}}</div>
+								<img alt="logo" style="max-height:150px" class="img-circle m-t-xs img-responsive" src="{{$data->icon or '/_admin/img/no-logo.png'}}">
+								<div class="m-t-xs font-bold">{{ $data->name or 'Название компании отсутствует'}}</div>
 							</div>
 						</div>
 						<div class="col-sm-8" style="font-size:16px">
-							<h3 style="font-size:24px"><strong>{{$data->name}}</strong></h3>
+							<h3 style="font-size:24px"><strong>{{$data->name or 'Название компании отсутствует'}}</strong></h3>
 							<p><i class="fa fa-map-marker"></i> {{$data->address or 'Почтовый адрес отсутствует'}}</p>
 							<p><i class="fa fa-map-marker"></i>
 								{{$data->legal_address or 'Юридический адрес отсутствует'}}

@@ -4,7 +4,7 @@ Installation
 ------------
 
 ```
-composer require egorryaroslavl/contacts 
+composer require "egorryaroslavl/contacts":"1.0.1"
 ```
 
 Then add ServiceProviders
@@ -12,7 +12,7 @@ Then add ServiceProviders
 ``` 
   'providers' => [
     // ...
-    Egorryaroslavl\Contcts\ContctsServiceProvider::class,
+    Egorryaroslavl\Contacts\ContactsServiceProvider::class,
     Collective\Html\HtmlServiceProvider::class,
     Intervention\Image\ImageServiceProvider::class,
     // ...
@@ -29,7 +29,7 @@ and aliases
     // ...
   ],
 ``` 
-and run
+and run this
 ``` 
 php artisan vendor:publish 
 ```
